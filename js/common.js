@@ -40,4 +40,9 @@ $(document).ready(function () {
       $('.map-info-block').removeClass('active');
     })
   })
+
+
+  var outerContent = $('.map-overlay');
+  var innerContent = $('.map-scrool');
+  $('.map-overlay').scrollLeft((innerContent.width() - outerContent.width()) / 2);    
 })
