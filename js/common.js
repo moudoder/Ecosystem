@@ -17,29 +17,48 @@ $(document).ready(function () {
     $('.map-info-block').addClass('active');
   }
 
-  $('.map-item__cursor').on('mouseenter', function() {
-    let index_elem = $('.map-item__cursor').index(this);
-    let elements__arr = $('.map-item');
-    let now_element = $(elements__arr)[index_elem];
-
-    $(now_element).addClass('visible');
-    $(this).on('mouseleave', function() {
-      $(now_element).removeClass('visible');
-    })
-  })
-
-
-
   
 
-  $('.map-item__cursor').on('mouseenter', function() {
-    let title = $(this).data('title');
-    $('.map-info-block__title').text(title);
-    showCoords(event)
-    $(this).on('mouseout', function(argument) {
-      $('.map-info-block').removeClass('active');
+  if ($(window).width() < 768) {
+     $('.map-item__cursor').on('click', function() {
+       let index_elem = $('.map-item__cursor').index(this);
+       let elements__arr = $('.map-item');
+       let now_element = $(elements__arr)[index_elem];
+       $('.map-item').removeClass('visible');
+       $(now_element).addClass('visible');
+       
+
+       
+     })
+
+     $('.map-item__cursor').on('click', function() {
+       let title = $(this).data('title');
+       $('.map-info-block__title').text(title);
+       showCoords(event)
+      
+     })
+  }
+  else {
+    $('.map-item__cursor').on('mouseenter', function() {
+      let index_elem = $('.map-item__cursor').index(this);
+      let elements__arr = $('.map-item');
+      let now_element = $(elements__arr)[index_elem];
+
+      $(now_element).addClass('visible');
+      $(this).on('mouseleave', function() {
+        $(now_element).removeClass('visible');
+      })
     })
-  })
+
+    $('.map-item__cursor').on('mouseenter', function() {
+      let title = $(this).data('title');
+      $('.map-info-block__title').text(title);
+      showCoords(event)
+      $(this).on('mouseout', function(argument) {
+        $('.map-info-block').removeClass('active');
+      })
+    })
+  }
 
 
   var outerContent = $('.map-overlay');
