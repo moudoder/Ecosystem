@@ -44,5 +44,5 @@ $(document).ready(function () {
 
   var outerContent = $('.map-overlay');
   var innerContent = $('.map-scrool');
-  $('.map-overlay').scrollLeft((innerContent.width() - outerContent.width()) / 2);    
+  $('.map-overlay').scrollLeft((innerContent.width() - outerContent.width()) / 2 - 70); 
 })
